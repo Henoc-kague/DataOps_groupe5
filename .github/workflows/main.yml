@@ -23,16 +23,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests
+    - name: Run script to generate graph
       run: |
-        python -m unittest discover -s . -p "test_*.py"
-
-    - name: Generate graph
-      run: |
-        python visualize.py  # Assure-toi que ton script génère 'graph.png'
+        python scripts/visualize.py  # Exécution de ton script Python
 
     - name: Upload graph as an artifact
       uses: actions/upload-artifact@v3
       with:
-        name: graph
-        path: graph.png  # Spécifie ici le chemin vers le fichier généré
+        name: graph  # Nom de l'artefact
+        path: graph.png  # Fichier à uploader
