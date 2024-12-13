@@ -23,6 +23,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Generate graph
+      run: |
+        python visualize.py  # Exécuter le script pour générer le graphique
+
     - name: Run tests
       run: |
         python -m unittest discover -s . -p "test_*.py"
