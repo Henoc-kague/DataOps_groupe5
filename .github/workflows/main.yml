@@ -27,12 +27,12 @@ jobs:
       run: |
         python -m unittest discover -s . -p "test_*.py"
 
-    - name: Generate graph (if applicable)
+    - name: Generate graph
       run: |
-        python generate_graph.py  # Si ton script est celui qui génère le graphe, remplace par ton script réel
+        python visualize.py  # Assure-toi que ton script génère 'graph.png'
 
-    - name: Upload graph artifact
+    - name: Upload graph as an artifact
       uses: actions/upload-artifact@v3
       with:
         name: graph
-        path: path/to/graph.png  # Remplace par le chemin réel de ton fichier généré
+        path: graph.png  # Spécifie ici le chemin vers le fichier généré
